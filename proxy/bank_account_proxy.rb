@@ -3,15 +3,7 @@ class BankAccountProxy
     @real_object = real_object
   end
 
-  def deposit(amount)
-    @real_object.deposit(amount)
-  end
-
-  def withdraw(amount)
-    @real_object.withdraw(amount)
-  end
-
-  def balance
-    @real_object.balance
+  def method_missing(method, *args)
+    @real_object.send(method, *args)
   end
 end

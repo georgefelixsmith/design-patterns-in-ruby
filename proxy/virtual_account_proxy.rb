@@ -3,16 +3,8 @@ class VirtualAccountProxy
     @creation_block = creation_block
   end
 
-  def deposit(amount)
-    subject.deposit(amount)
-  end
-  
-  def withdraw(amount)
-    subject.withdraw(amount)
-  end
-
-  def balance
-    subject.balance
+  def method_missing(method, *args)
+    subject.send(method, *args)
   end
 
   def subject
