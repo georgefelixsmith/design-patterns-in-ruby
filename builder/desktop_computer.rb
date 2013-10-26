@@ -1,0 +1,2 @@
+class DesktopComputer < Computer
+end
